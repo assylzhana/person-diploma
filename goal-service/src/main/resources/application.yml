@@ -1,0 +1,44 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: goal-service
+  config:
+    import: optional:file:.env[.properties]
+  datasource:
+    url: ${GOAL_DATASOURCE_URL}
+    username: ${GOAL_DATASOURCE_USERNAME}
+    password: ${GOAL_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 0
+      max-lifetime: 60000
+      idle-timeout: 30000
+      keepalive-time: 30000
+      connection-timeout: 20000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  cloud:
+    openfeign:
+      lazy-attributes-resolution: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    sdu.diploma: DEBUG

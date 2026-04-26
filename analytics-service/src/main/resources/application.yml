@@ -1,0 +1,22 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: analytics-service
+  config:
+    import: optional:file:.env[.properties]
+  cloud:
+    openfeign:
+      lazy-attributes-resolution: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    sdu.diploma: DEBUG
+    root: DEBUG
