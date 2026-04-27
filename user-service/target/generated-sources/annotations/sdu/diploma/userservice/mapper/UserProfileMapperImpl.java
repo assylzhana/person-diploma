@@ -8,7 +8,7 @@ import sdu.diploma.userservice.entity.UserProfile;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-04-26T09:29:32+0500",
+    date = "2026-04-26T23:38:51+0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23 (Oracle Corporation)"
 )
 @Component
@@ -41,10 +41,20 @@ public class UserProfileMapperImpl implements UserProfileMapper {
             return;
         }
 
-        profile.setFirstName( request.getFirstName() );
-        profile.setLastName( request.getLastName() );
-        profile.setBio( request.getBio() );
-        profile.setAvatarUrl( request.getAvatarUrl() );
-        profile.setPrivacyType( request.getPrivacyType() );
+        if ( request.getFirstName() != null ) {
+            profile.setFirstName( request.getFirstName() );
+        }
+        if ( request.getLastName() != null ) {
+            profile.setLastName( request.getLastName() );
+        }
+        if ( request.getBio() != null ) {
+            profile.setBio( request.getBio() );
+        }
+        if ( request.getAvatarUrl() != null ) {
+            profile.setAvatarUrl( request.getAvatarUrl() );
+        }
+        if ( request.getPrivacyType() != null ) {
+            profile.setPrivacyType( request.getPrivacyType() );
+        }
     }
 }

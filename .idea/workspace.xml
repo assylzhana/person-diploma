@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="219398af-de87-4137-8080-b76ebed5ecb7" name="Changes" comment="" />
+    <list default="true" id="219398af-de87-4137-8080-b76ebed5ecb7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finance-service/src/main/java/sdu/diploma/financeservice/enums/ExpenseCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/finance-service/src/main/java/sdu/diploma/financeservice/enums/ExpenseCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/goal-service/src/main/java/sdu/diploma/goalservice/mapper/GoalMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/goal-service/src/main/java/sdu/diploma/goalservice/mapper/GoalMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/UserServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/UserServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/controller/UserProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/controller/UserProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/mapper/UserProfileMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/java/sdu/diploma/userservice/mapper/UserProfileMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-service/target/generated-sources/annotations/sdu/diploma/userservice/mapper/UserProfileMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/generated-sources/annotations/sdu/diploma/userservice/mapper/UserProfileMapperImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +27,9 @@
     <persistenceIdMap>
       <entry key="_C:/Users/user/Downloads/Person" value="3ClcXoKHiRZt8TsRscDh3xkp90F" />
     </persistenceIdMap>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
   <component name="KubernetesApiProvider"><![CDATA[{
@@ -41,6 +57,7 @@
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.AnalyticsServiceApplication.executor": "Run",
     "Spring Boot.ApiGatewayApplication.executor": "Run",
     "Spring Boot.AuthServiceApplication.executor": "Run",
@@ -49,6 +66,7 @@
     "Spring Boot.NotificationServiceApplication.executor": "Run",
     "Spring Boot.PersonApplication.executor": "Run",
     "Spring Boot.UserServiceApplication (1).executor": "Run",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -174,7 +192,7 @@
       <option name="presentableId" value="Default" />
       <updated>1776963639330</updated>
       <workItem from="1776963640542" duration="1638000" />
-      <workItem from="1777141343652" duration="19415000" />
+      <workItem from="1777141343652" duration="30778000" />
     </task>
     <servers />
   </component>

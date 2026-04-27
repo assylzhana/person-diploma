@@ -7,8 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sdu.diploma.userservice.dto.CreateUserProfileRequest;
+import sdu.diploma.userservice.dto.FriendProfileResponse;
 import sdu.diploma.userservice.dto.UpdateProfileRequest;
 import sdu.diploma.userservice.dto.UserProfileResponse;
+import sdu.diploma.userservice.service.FriendProfileService;
 import sdu.diploma.userservice.service.UserProfileService;
 
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.List;
 public class UserProfileController {
 
     private final UserProfileService userProfileService;
+    private final FriendProfileService friendProfileService;
 
     @PostMapping("/internal/profile")
     @Operation(summary = "Create profile (internal, called by auth-service)")
@@ -54,5 +57,13 @@ public class UserProfileController {
             @RequestHeader("X-User-Id") Long requesterId,
             @PathVariable("userId") Long userId) {
         return ResponseEntity.ok(userProfileService.getProfileByUserId(userId, requesterId));
+    }
+
+    @GetMapping("/{userId}/full-profile")
+    @Operation(summary = "Get full profile with level, goals and psychological stats")
+    public ResponseEntity<FriendProfileResponse> getFullProfile(
+            @RequestHeader("X-User-Id") Long requesterId,
+            @PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(friendProfileService.getFullProfile(userId, requesterId));
     }
 }

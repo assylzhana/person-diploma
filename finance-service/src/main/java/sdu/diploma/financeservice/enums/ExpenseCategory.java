@@ -4,7 +4,7 @@ public enum ExpenseCategory {
     FOOD,
     TRANSPORT,
     ENTERTAINMENT,
-    HEALTH,
+    HEALTHCARE,
     EDUCATION,
     CLOTHING,
     HOUSING,
