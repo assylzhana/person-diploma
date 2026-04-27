@@ -8,7 +8,7 @@ import sdu.diploma.userservice.entity.UserProfile;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-04-26T23:38:51+0500",
+    date = "2026-04-27T11:00:22+0500",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23 (Oracle Corporation)"
 )
 @Component

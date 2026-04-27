@@ -1,6 +1,11 @@
 version: '3.8'
 
+networks:
+  person-net:
+    driver: bridge
+
 services:
+
   api-gateway:
     build:
       context: ./api-gateway
@@ -9,21 +14,35 @@ services:
     ports:
       - "8080:8080"
     environment:
-      AUTH_SERVICE_URL: ${AUTH_SERVICE_URL}
-      USER_SERVICE_URL: ${USER_SERVICE_URL}
-      GOAL_SERVICE_URL: ${GOAL_SERVICE_URL}
-      FINANCE_SERVICE_URL: ${FINANCE_SERVICE_URL}
-      ANALYTICS_SERVICE_URL: ${ANALYTICS_SERVICE_URL}
-      NOTIFICATION_SERVICE_URL: ${NOTIFICATION_SERVICE_URL}
       JWT_SECRET: ${JWT_SECRET}
+      AUTH_SERVICE_URL: http://auth-service:8081
+      USER_SERVICE_URL: http://user-service:8082
+      GOAL_SERVICE_URL: http://goal-service:8083
+      FINANCE_SERVICE_URL: http://finance-service:8084
+      ANALYTICS_SERVICE_URL: http://analytics-service:8085
+      NOTIFICATION_SERVICE_URL: http://notification-service:8086
     depends_on:
-      - auth-service
-      - user-service
-      - goal-service
-      - finance-service
-      - analytics-service
-      - notification-service
-    restart: on-failure
+      auth-service:
+        condition: service_healthy
+      user-service:
+        condition: service_healthy
+      goal-service:
+        condition: service_healthy
+      finance-service:
+        condition: service_healthy
+      analytics-service:
+        condition: service_healthy
+      notification-service:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   auth-service:
     build:
@@ -39,8 +58,16 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       JWT_ACCESS_EXPIRATION: ${JWT_ACCESS_EXPIRATION}
       JWT_REFRESH_EXPIRATION: ${JWT_REFRESH_EXPIRATION}
-      USER_SERVICE_URL: ${USER_SERVICE_URL}
-    restart: on-failure
+      USER_SERVICE_URL: http://user-service:8082
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8081/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   user-service:
     build:
@@ -53,7 +80,16 @@ services:
       USER_DATASOURCE_URL: ${USER_DATASOURCE_URL}
       USER_DATASOURCE_USERNAME: ${USER_DATASOURCE_USERNAME}
       USER_DATASOURCE_PASSWORD: ${USER_DATASOURCE_PASSWORD}
-    restart: on-failure
+      GOAL_SERVICE_URL: http://goal-service:8083
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8082/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   goal-service:
     build:
@@ -66,8 +102,16 @@ services:
       GOAL_DATASOURCE_URL: ${GOAL_DATASOURCE_URL}
       GOAL_DATASOURCE_USERNAME: ${GOAL_DATASOURCE_USERNAME}
       GOAL_DATASOURCE_PASSWORD: ${GOAL_DATASOURCE_PASSWORD}
-      NOTIFICATION_SERVICE_URL: ${NOTIFICATION_SERVICE_URL}
-    restart: on-failure
+      NOTIFICATION_SERVICE_URL: http://notification-service:8086
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8083/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   finance-service:
     build:
@@ -80,7 +124,15 @@ services:
       FINANCE_DATASOURCE_URL: ${FINANCE_DATASOURCE_URL}
       FINANCE_DATASOURCE_USERNAME: ${FINANCE_DATASOURCE_USERNAME}
       FINANCE_DATASOURCE_PASSWORD: ${FINANCE_DATASOURCE_PASSWORD}
-    restart: on-failure
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8084/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   analytics-service:
     build:
@@ -90,10 +142,18 @@ services:
     ports:
       - "8085:8085"
     environment:
-      GOAL_SERVICE_URL: ${GOAL_SERVICE_URL}
-      FINANCE_SERVICE_URL: ${FINANCE_SERVICE_URL}
-      USER_SERVICE_URL: ${USER_SERVICE_URL}
-    restart: on-failure
+      GOAL_SERVICE_URL: http://goal-service:8083
+      FINANCE_SERVICE_URL: http://finance-service:8084
+      USER_SERVICE_URL: http://user-service:8082
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8085/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
 
   notification-service:
     build:
@@ -106,7 +166,12 @@ services:
       NOTIFICATION_DATASOURCE_URL: ${NOTIFICATION_DATASOURCE_URL}
       NOTIFICATION_DATASOURCE_USERNAME: ${NOTIFICATION_DATASOURCE_USERNAME}
       NOTIFICATION_DATASOURCE_PASSWORD: ${NOTIFICATION_DATASOURCE_PASSWORD}
-    restart: on-failure
-
-volumes:
-  postgres_data:
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8086/v3/api-docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+    restart: unless-stopped
+    networks:
+      - person-net
