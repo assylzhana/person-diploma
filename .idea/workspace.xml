@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="219398af-de87-4137-8080-b76ebed5ecb7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-service/target/generated-sources/annotations/sdu/diploma/userservice/mapper/UserProfileMapperImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-service/target/generated-sources/annotations/sdu/diploma/userservice/mapper/UserProfileMapperImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/sdu/diploma/apigateway/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/sdu/diploma/apigateway/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +189,7 @@
       <option name="presentableId" value="Default" />
       <updated>1776963639330</updated>
       <workItem from="1776963640542" duration="1638000" />
-      <workItem from="1777141343652" duration="32122000" />
+      <workItem from="1777141343652" duration="36967000" />
     </task>
     <servers />
   </component>
